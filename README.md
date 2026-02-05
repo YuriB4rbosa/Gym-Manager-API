@@ -1,71 +1,139 @@
-🏋️‍♂️ Gym Manager API
-Uma API robusta para gerenciamento de academias, focada em controle de acessos, rotas autenticadas e gestão de dados. Este projeto utiliza uma arquitetura organizada para separar responsabilidades de autenticação, lógica de rotas e utilitários.
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gym Manager API</title>
+    
+</head>
+<body>
 
+<h1>🏋️‍♂️ Gym Manager API</h1>
 
+<p>
+API para gerenciamento de academias, focada em controle de alunos,
+autenticação de rotas e organização modular do backend.
+</p>
 
-📁 Estrutura do Projeto
-Abaixo está uma visão geral dos principais componentes do sistema:
+<div class="card">
+<h2>📁 Estrutura do Projeto</h2>
 
-auth/: Contém a lógica de segurança e o auth_decorator.py, responsável por proteger as rotas da aplicação.
+<pre>
+gym-manager/
+│
+├ auth/
+├ controllers/
+├ templates/
+├ static/
+├ db.py
+├ database.db
+├ utils.py
+├ app.py
+├ .env.example
+├ requirements.txt
+</pre>
+</div>
 
-controllers/: Onde reside o routes.py, gerenciando os endpoints e a orquestração das requisições.
+<div class="card">
+<h2>🚀 Tecnologias</h2>
+<ul>
+<li>Python</li>
+<li>Flask</li>
+<li>SQLite</li>
+<li>Virtualenv</li>
+<li>HTML / CSS / JS</li>
+</ul>
+</div>
 
-db.py & database.db: Configuração e persistência de dados (SQLite).
+<div class="card">
+<h2>🛠️ Instalação</h2>
 
-app.py: Ponto de entrada (entry point) da aplicação.
-
-utils.py: Funções auxiliares para reaproveitamento de código.
-
-index.html: Interface frontal ou página de documentação da API.
-
-🚀 Tecnologias Utilizadas
-Python: Linguagem principal.
-
-SQLite: Banco de dados relacional leve.
-
-Flask
-
-Virtualenv: Gerenciamento de ambiente isolado.
-
-🛠️ Como Instalar e Rodar
-Clone o repositório:
-
-Bash
+<h3>Clonar projeto</h3>
+<pre>
 git clone https://github.com/seu-usuario/gym-manager.git
 cd gym-manager
-Configure o ambiente virtual:
+</pre>
 
-Bash
-# Criar o venv
+<h3>Criar ambiente virtual</h3>
+<pre>
 python -m venv venv
+</pre>
 
-# Ativar o venv (Windows)
+<h3>Ativar</h3>
+<pre>
+Windows:
 .\venv\Scripts\activate
 
-# Ativar o venv (Linux/Mac)
+Linux/Mac:
 source venv/bin/activate
-Instale as dependências:
+</pre>
 
-Bash
+<h3>Instalar dependências</h3>
+<pre>
 pip install -r requirements.txt
-Configure as variáveis de ambiente: Crie um arquivo .env na raiz do projeto (use o .env existente como base) e adicione suas chaves secretas e configurações de banco de dados.
+</pre>
 
-Inicie a aplicação:
-
-Bash
+<h3>Rodar aplicação</h3>
+<pre>
 python app.py
-🔐 Autenticação
-A API utiliza um sistema de decoradores para proteção de rotas. Certifique-se de enviar o token necessário no header das requisições para acessar as funcionalidades dentro de controllers.
+</pre>
+</div>
 
-📄 Documentação de Requisitos
-Para detalhes técnicos sobre as regras de negócio e funcionalidades esperadas, consulte o arquivo:
+<div class="card">
+<h2>🔐 Autenticação</h2>
 
-requirements.md
+<p>Enviar no header:</p>
 
-Nota: Este projeto inclui um arquivo de banco de dados local (database.db) para fins de desenvolvimento. Em produção, certifique-se de utilizar variáveis de ambiente seguras.
+<pre>
+x-internal-token: SEU_TOKEN
+</pre>
+</div>
 
+<div class="card">
+<h2>📊 Funcionalidades</h2>
+<ul>
+<li>Cadastro de alunos</li>
+<li>Cálculo automático de IMC</li>
+<li>Troca de plano</li>
+<li>Faturamento total</li>
+<li>Deletar alunos</li>
+<li>Rotas protegidas</li>
+</ul>
+</div>
 
-Equipe: 
-https://www.linkedin.com/in/fernanda-teicheira-aa1858201/
+<div class="card">
+<h2>📄 Requisitos</h2>
+<p>Veja o arquivo <code>requirements.md</code></p>
+</div>
+
+<div class="card">
+<h2>⚠️ Observações</h2>
+<ul>
+<li>database.db é só para desenvolvimento</li>
+<li>Não subir .env real para o GitHub</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>👨‍💻 Equipe</h2>
+
+<p>
+Fernanda<br>
+<a href="https://www.linkedin.com/in/fernanda-teicheira-aa1858201/" target="_blank">
+LinkedIn
+</a>
+</p>
+
+<p>
+Gabriel<br>
 gabrielrod039@gmail.com
+</p>
+
+<p>
+Marcos<br>
 vmarcos2007@gmail.com
+</p>
+
+</div>
+
+</body>
+</html>
