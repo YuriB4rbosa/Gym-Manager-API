@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Manager - Sistema de Gerenciamento</title>
+    <link rel="icon" href="/favicon-lannister.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/static/style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚔️ ACADEMIA LANNISTER ⚔️</h1>
+            <p>GESTÃO PROFISSIONAL DE ACADEMIA</p>
+        </header>
+
+        <!-- Seção de Token -->
+        <div class="token-section">
+            <h3>🔐 Autenticação</h3>
+            <div class="token-input-group">
+                <input type="password" id="apiToken" placeholder="Cole seu token de API aqui...">
+                <button onclick="salvarToken()" style="max-width: 150px;">Definir Token</button>
+            </div>
+            <small>✨ O token será armazenado localmente no seu navegador para facilitar o acesso.</small>
+        </div>
+
+        <!-- Dashboard -->
+        <div class="dashboard">
+            <!-- Card 1: Cadastrar Aluno -->
+            <div class="card">
+                <h2>📝 Novo Aluno</h2>
+                <form onsubmit="criarAluno(event)">
+                    <div class="form-group">
+                        <label>Nome Completo</label>
+                        <input type="text" id="nomeAluno" placeholder="João Silva..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Peso (kg)</label>
+                        <input type="number" id="pesoAluno" placeholder="75" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Altura (m)</label>
+                        <input type="number" id="alturaAluno" placeholder="1.80" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Plano</label>
+                        <select id="planoAluno" required>
+                            <option value="">Selecione...</option>
+                            <option value="1">📅 Mensal - R$ 99.99</option>
+                            <option value="2">📆 Anual - R$ 129.99</option>
+                        </select>
+                    </div>
+                    <button type="submit">Cadastrar</button>
+                </form>
+                <div id="alunoAlert"></div>
+            </div>
+
+            <!-- Card 2: Listar Alunos -->
+            <div class="card">
+                <h2>👥 Alunos Inscritos</h2>
+                <button onclick="carregarAlunos()" style="margin-bottom: 15px;">🔄 Atualizar Lista</button>
+                <div id="listaAlunos" class="students-list"></div>
+            </div>
+
+            <!-- Card 3: Calcular IMC -->
+            <div class="card">
+                <h2>⚖️ Cálculo de IMC</h2>
+                <div class="form-group">
+                    <label>ID do Aluno</label>
+                    <input type="number" id="alunoIdIMC" placeholder="Ex: 1">
+                </div>
+                <button onclick="calcularIMC()">Calcular</button>
+                <div id="imcResultado" style="margin-top: 15px;"></div>
+            </div>
+
+            <!-- Card 4: Faturamento -->
+            <div class="card">
+                <h2>💰 Faturamento Total</h2>
+                <button onclick="carregarFaturamento()" style="margin-bottom: 15px;">💹 Carregar</button>
+                <div id="faturamentoResultado"></div>
+            </div>
+
+            <!-- Card 5: Trocar Plano -->
+            <div class="card">
+                <h2>🔄 Atualizar Plano</h2>
+                <div class="form-group">
+                    <label>ID do Aluno</label>
+                    <input type="number" id="alunoIdPlano" placeholder="Ex: 1">
+                </div>
+                <div class="form-group">
+                    <label>Novo Plano</label>
+                    <select id="novoPlano" required>
+                        <option value="">Selecione...</option>
+                        <option value="1">📅 Mensal - R$ 99.99</option>
+                        <option value="2">📆 Anual - R$ 129.99</option>
+                    </select>
+                </div>
+                <button class="btn-secondary" onclick="trocarPlano()">Atualizar</button>
+                <div id="planoAlert"></div>
+            </div>
+
+            <!-- Card 6: Deletar Aluno -->
+            <div class="card">
+                <h2>🗑️ Remover Aluno</h2>
+                <div class="form-group">
+                    <label>ID do Aluno</label>
+                    <input type="number" id="alunoIdDelete" placeholder="Ex: 1">
+                </div>
+                <button class="btn-delete" onclick="deletarAluno()">Deletar</button>
+                <div id="deleteAlert"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/script.js"></script>
+</body>
+</html>
