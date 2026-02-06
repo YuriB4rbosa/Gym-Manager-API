@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from db import get_connection
 from utils import calcular_imc, categoria_imc
-from auth.auth_decorator import *
+from auth.auth_decorator import internal_auth_required
 
 api = Blueprint("api", __name__)
 

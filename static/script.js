@@ -51,11 +51,32 @@ const API_BASE_URL = 'http://localhost:5000';
                 const resultado = await response.json();
 
                 if (response.ok) {
-                    mostrarAlertaEmElemento('✅ ' + resultado.mensagem, 'success', 'alunoAlert');
+
+                    mostrarAlertaEmElemento(
+                        '✅ ' + resultado.mensagem,
+                        'success',
+                        'alunoAlert'
+                    );
+
                     document.querySelector('form').reset();
                     carregarAlunos();
+
+                } else if (response.status === 401) {
+
+                    mostrarAlertaEmElemento(
+                        '❌ Erro 401 — Token inválido',
+                        'error',
+                        'alunoAlert'
+                    );
+
                 } else {
-                    mostrarAlertaEmElemento('❌ ' + (resultado.erro || 'Erro ao cadastrar'), 'error', 'alunoAlert');
+
+                    mostrarAlertaEmElemento(
+                        '❌ ' + (resultado.erro || 'Erro ao cadastrar'),
+                        'error',
+                        'alunoAlert'
+                    );
+
                 }
             } catch (erro) {
                 mostrarAlertaEmElemento('❌ Erro de conexão com a API', 'error', 'alunoAlert');
@@ -105,7 +126,7 @@ const API_BASE_URL = 'http://localhost:5000';
                                 </div>
                                 <div class="info-field">
                                     <span class="info-label">Plano</span>
-                                    <span class="info-value">${aluno.plano_id === 1 ? '📅 Mensal' : '📆 Anual'}</span>
+                                    <span class="info-value">${aluno.plano_id === 1 ? '📅 Mensal R$99,99' : '📆 Anual R$ 129,99'}</span>
                                 </div>
                             </div>
                             <span class="imc-badge ${classeIMC}">IMC: ${aluno.imc} - ${categoria}</span>
